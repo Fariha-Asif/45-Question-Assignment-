@@ -6,16 +6,20 @@ Call the function make_great() with a copy of the array of magicians’ names.
 Because the original array will be unchanged, return the new array and store it in a separate array.
 Call show_magicians() with each array to show that you have one array of the original names and one
 array with the Great added to each magician’s name. */
-function addGreat(magicians) {
-    const great_magicians = [];
-    for (const magician of magicians) {
-        great_magicians.push(`${magician} the Great`);
-    }
+const magicians = ["Roger Lapin", "David Copperfield", "Paul Daniels", "David Blaine", "Derren Brown"];
+function show_magicians(magicians) {
+    magicians.forEach((magician) => {
+        console.log(magician);
+    });
+}
+function make_great(magicians) {
+    let great_magicians = magicians.map((magician) => {
+        return `The Great ${magician}`;
+    });
     return great_magicians;
 }
-const magicians = ["Roger Lapin", "David Copperfield", "Paul Daniels", "David Blaine", "Derren Brown"];
-console.log("Original Magicians:");
-console.log(magicians.join('\n'));
-console.log("\nGreat Magicians:");
-const great_magicians = addGreat(magicians);
-console.log(great_magicians.join('\n'));
+console.log("Original magicians:");
+(show_magicians(magicians));
+let great_magicians = make_great([...magicians]);
+console.log("Great Added Magicians:");
+show_magicians(great_magicians);
